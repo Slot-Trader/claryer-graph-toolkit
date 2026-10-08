@@ -1,0 +1,63 @@
+{
+  "name": "graph-context-kit",
+  "version": "0.1.0",
+  "description": "A TypeScript toolkit for building graph-based conversational AI: store conversations in Neo4j, retrieve relationship context, and get structured analysis from any LLM provider.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "RUN_NEO4J_INTEGRATION=1 vitest run tests/neo4j.integration.test.ts",
+    "example": "tsx examples/conversation-analysis/index.ts",
+    "check": "npm run typecheck && npm run lint && npm test"
+  },
+  "keywords": [
+    "neo4j",
+    "knowledge-graph",
+    "llm",
+    "conversational-ai",
+    "context",
+    "typescript"
+  ],
+  "dependencies": {
+    "neo4j-driver": "^5.28.1",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.0",
+    "@types/node": "^20.19.0",
+    "dotenv": "^16.5.0",
+    "eslint": "^9.30.0",
+    "tsx": "^4.20.0",
+    "typescript": "~5.9.0",
+    "typescript-eslint": "^8.40.0",
+    "vitest": "^4.1.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slot-Trader/claryer-graph-toolkit.git"
+  },
+  "homepage": "https://github.com/Slot-Trader/claryer-graph-toolkit#readme",
+  "bugs": {
+    "url": "https://github.com/Slot-Trader/claryer-graph-toolkit/issues"
+  }
+}

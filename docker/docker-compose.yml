@@ -1,0 +1,11 @@
+# Local Neo4j for development. Change NEO4J_AUTH before using anywhere but your own machine.
+services:
+  neo4j:
+    image: neo4j:5
+    ports:
+      - "7474:7474" # Browser UI
+      - "7687:7687" # Bolt
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-change-me-locally}
+    volumes:
+      - ../neo4j-data:/data
